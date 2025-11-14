@@ -45,23 +45,246 @@ The model was successfully trained to reach the target loss threshold:
 | GPU Utilized | Tesla T4 (Google Colab) |
 | Training Date | November 13, 2025 |
 
-### Training Log
+### Complete Training Progress
 
-Complete training logs with step-by-step metrics are available in `training_log_20251113_081228.json`. The log includes:
-- Loss value for each step
-- Timestamp for each update
-- Training time per step
-- Complete training trajectory
+<details>
+<summary><b>📊 Click to expand full training log (7,828 steps)</b></summary>
 
-Sample training progression:
 ```
-Step     0 | Loss: 10.955 | Time: 0.036s
-Step   100 | Loss:  6.234 | Time: 0.031s
-Step   500 | Loss:  2.567 | Time: 0.029s
-Step  1000 | Loss:  1.234 | Time: 0.028s
-Step  5000 | Loss:  0.345 | Time: 0.027s
-Step  7827 | Loss:  0.097 | Time: 0.032s ✅ TARGET REACHED
+================================================================================
+TRAINING STARTED
+================================================================================
+
+Initial Phase (Steps 0-19):
+--------------------------------------------------------------------------------
+Step     0 | Loss: 10.955374 | Time: 1.983s | 2025-11-14T11:38:20.802061
+Step     1 | Loss:  9.457475 | Time: 0.029s | 2025-11-14T11:38:21.692970
+Step     2 | Loss:  9.042036 | Time: 0.032s | 2025-11-14T11:38:23.915811
+Step     3 | Loss:  8.679370 | Time: 0.028s | 2025-11-14T11:38:26.465604
+Step     4 | Loss:  8.566594 | Time: 0.028s | 2025-11-14T11:38:29.055482
+Step     5 | Loss:  8.359818 | Time: 0.029s | 2025-11-14T11:38:31.674607
+Step     6 | Loss:  8.063511 | Time: 0.029s | 2025-11-14T11:38:34.296624
+Step     7 | Loss:  7.947628 | Time: 0.031s | 2025-11-14T11:38:36.981092
+Step     8 | Loss:  7.623395 | Time: 0.028s | 2025-11-14T11:38:39.647837
+Step     9 | Loss:  7.418565 | Time: 0.029s | 2025-11-14T11:38:42.292583
+Step    10 | Loss:  7.220815 | Time: 0.033s | 2025-11-14T11:38:44.859413
+Step    11 | Loss:  6.800508 | Time: 0.028s | 2025-11-14T11:38:47.437772
+Step    12 | Loss:  6.884971 | Time: 0.029s | 2025-11-14T11:38:50.032217
+Step    13 | Loss:  6.743864 | Time: 0.027s | 2025-11-14T11:38:50.150290
+Step    14 | Loss:  6.703094 | Time: 0.028s | 2025-11-14T11:38:52.732131
+Step    15 | Loss:  6.497309 | Time: 0.029s | 2025-11-14T11:38:55.311421
+Step    16 | Loss:  6.747107 | Time: 0.029s | 2025-11-14T11:38:57.860411
+Step    17 | Loss:  6.350757 | Time: 0.028s | 2025-11-14T11:38:57.991597
+Step    18 | Loss:  6.295500 | Time: 0.029s | 2025-11-14T11:39:00.588535
+Step    19 | Loss:  6.244040 | Time: 0.030s | 2025-11-14T11:39:03.226186
+
+Training Progress (Every 50 steps):
+--------------------------------------------------------------------------------
+Step    50 | Loss:  6.517082 | Time: 0.026s
+Step   100 | Loss:  5.727831 | Time: 0.026s
+Step   150 | Loss:  5.925779 | Time: 0.025s
+Step   200 | Loss:  5.141158 | Time: 0.033s
+Step   250 | Loss:  5.286503 | Time: 0.027s
+Step   300 | Loss:  4.938460 | Time: 0.029s
+Step   350 | Loss:  5.172752 | Time: 0.031s
+Step   400 | Loss:  4.899518 | Time: 0.025s
+Step   450 | Loss:  4.940548 | Time: 0.032s
+Step   500 | Loss:  5.167591 | Time: 0.026s
+Step   550 | Loss:  5.105649 | Time: 0.025s
+Step   600 | Loss:  5.121778 | Time: 0.026s
+Step   650 | Loss:  4.294784 | Time: 0.025s
+Step   700 | Loss:  4.803746 | Time: 0.025s
+Step   750 | Loss:  4.536718 | Time: 0.025s
+Step   800 | Loss:  4.076574 | Time: 0.026s
+Step   850 | Loss:  4.413005 | Time: 0.026s
+Step   900 | Loss:  4.734385 | Time: 0.025s
+Step   950 | Loss:  4.632375 | Time: 0.026s
+Step  1000 | Loss:  4.157934 | Time: 0.026s
+Step  1050 | Loss:  4.224031 | Time: 0.026s
+Step  1100 | Loss:  4.458629 | Time: 0.032s
+Step  1150 | Loss:  4.546397 | Time: 0.027s
+Step  1200 | Loss:  4.259264 | Time: 0.026s
+Step  1250 | Loss:  4.183672 | Time: 0.027s
+Step  1300 | Loss:  4.120397 | Time: 0.028s
+Step  1350 | Loss:  3.949326 | Time: 0.026s
+Step  1400 | Loss:  3.834738 | Time: 0.025s
+Step  1450 | Loss:  3.924094 | Time: 0.027s
+Step  1500 | Loss:  3.667898 | Time: 0.026s
+Step  1550 | Loss:  4.047090 | Time: 0.026s
+Step  1600 | Loss:  4.255713 | Time: 0.026s
+Step  1650 | Loss:  4.122036 | Time: 0.028s
+Step  1700 | Loss:  3.784230 | Time: 0.026s
+Step  1750 | Loss:  3.585026 | Time: 0.028s
+Step  1800 | Loss:  3.640662 | Time: 0.027s
+Step  1850 | Loss:  3.387453 | Time: 0.028s
+Step  1900 | Loss:  3.352788 | Time: 0.027s
+Step  1950 | Loss:  3.317385 | Time: 0.027s
+Step  2000 | Loss:  3.673332 | Time: 0.026s
+Step  2050 | Loss:  3.361379 | Time: 0.029s
+Step  2100 | Loss:  3.713459 | Time: 0.027s
+Step  2150 | Loss:  3.453789 | Time: 0.026s
+Step  2200 | Loss:  3.512731 | Time: 0.026s
+Step  2250 | Loss:  3.419612 | Time: 0.027s
+Step  2300 | Loss:  2.968709 | Time: 0.027s
+Step  2350 | Loss:  3.246922 | Time: 0.026s
+Step  2400 | Loss:  3.092550 | Time: 0.027s
+Step  2450 | Loss:  2.991014 | Time: 0.026s
+Step  2500 | Loss:  3.097851 | Time: 0.026s
+Step  2550 | Loss:  3.312654 | Time: 0.026s
+Step  2600 | Loss:  3.308167 | Time: 0.026s
+Step  2650 | Loss:  2.933443 | Time: 0.026s
+Step  2700 | Loss:  2.943823 | Time: 0.026s
+Step  2750 | Loss:  3.094937 | Time: 0.025s
+Step  2800 | Loss:  3.060076 | Time: 0.026s
+Step  2850 | Loss:  2.876914 | Time: 0.026s
+Step  2900 | Loss:  2.985647 | Time: 0.026s
+Step  2950 | Loss:  2.853809 | Time: 0.026s
+Step  3000 | Loss:  2.843202 | Time: 0.030s
+Step  3050 | Loss:  2.594149 | Time: 0.027s
+Step  3100 | Loss:  2.700004 | Time: 0.026s
+Step  3150 | Loss:  2.462018 | Time: 0.026s
+Step  3200 | Loss:  2.685843 | Time: 0.026s
+Step  3250 | Loss:  2.718236 | Time: 0.025s
+Step  3300 | Loss:  2.658247 | Time: 0.029s
+Step  3350 | Loss:  2.560633 | Time: 0.026s
+Step  3400 | Loss:  2.441054 | Time: 0.027s
+Step  3450 | Loss:  2.397346 | Time: 0.026s
+Step  3500 | Loss:  2.275990 | Time: 0.027s
+Step  3550 | Loss:  2.285069 | Time: 0.025s
+Step  3600 | Loss:  2.169787 | Time: 0.026s
+Step  3650 | Loss:  2.471713 | Time: 0.026s
+Step  3700 | Loss:  2.316033 | Time: 0.026s
+Step  3750 | Loss:  2.474126 | Time: 0.026s
+Step  3800 | Loss:  2.115381 | Time: 0.025s
+Step  3850 | Loss:  2.344713 | Time: 0.026s
+Step  3900 | Loss:  2.241057 | Time: 0.026s
+Step  3950 | Loss:  1.887089 | Time: 0.027s
+Step  4000 | Loss:  2.062968 | Time: 0.025s
+Step  4050 | Loss:  2.046588 | Time: 0.026s
+Step  4100 | Loss:  1.952340 | Time: 0.031s
+Step  4150 | Loss:  1.997014 | Time: 0.031s
+Step  4200 | Loss:  2.120568 | Time: 0.026s
+Step  4250 | Loss:  2.038399 | Time: 0.026s
+Step  4300 | Loss:  1.893907 | Time: 0.025s
+Step  4350 | Loss:  1.980209 | Time: 0.027s
+Step  4400 | Loss:  1.971543 | Time: 0.025s
+Step  4450 | Loss:  1.947011 | Time: 0.026s
+Step  4500 | Loss:  1.834697 | Time: 0.026s
+Step  4550 | Loss:  1.867429 | Time: 0.026s
+Step  4600 | Loss:  1.711990 | Time: 0.025s
+Step  4650 | Loss:  1.811461 | Time: 0.026s
+Step  4700 | Loss:  1.685310 | Time: 0.026s
+Step  4750 | Loss:  1.785572 | Time: 0.029s
+Step  4800 | Loss:  1.515084 | Time: 0.027s
+Step  4850 | Loss:  1.645247 | Time: 0.026s
+Step  4900 | Loss:  1.679453 | Time: 0.026s
+Step  4950 | Loss:  1.614567 | Time: 0.026s
+Step  5000 | Loss:  1.603949 | Time: 0.029s
+Step  5050 | Loss:  1.518904 | Time: 0.026s
+Step  5100 | Loss:  1.436806 | Time: 0.027s
+Step  5150 | Loss:  1.422654 | Time: 0.026s
+Step  5200 | Loss:  1.425599 | Time: 0.026s
+Step  5250 | Loss:  1.392319 | Time: 0.026s
+Step  5300 | Loss:  1.549699 | Time: 0.028s
+Step  5350 | Loss:  1.374704 | Time: 0.026s
+Step  5400 | Loss:  1.581047 | Time: 0.026s
+Step  5450 | Loss:  1.111373 | Time: 0.025s
+Step  5500 | Loss:  1.368240 | Time: 0.026s
+Step  5550 | Loss:  1.149933 | Time: 0.028s
+Step  5600 | Loss:  1.092976 | Time: 0.032s
+Step  5650 | Loss:  1.124959 | Time: 0.028s
+Step  5700 | Loss:  1.155121 | Time: 0.027s
+Step  5750 | Loss:  1.127963 | Time: 0.027s
+Step  5800 | Loss:  1.098681 | Time: 0.026s
+Step  5850 | Loss:  1.034830 | Time: 0.029s
+Step  5900 | Loss:  1.058450 | Time: 0.028s
+Step  5950 | Loss:  0.952390 | Time: 0.025s
+Step  6000 | Loss:  0.971240 | Time: 0.025s
+Step  6050 | Loss:  0.916853 | Time: 0.025s
+Step  6100 | Loss:  0.912049 | Time: 0.026s
+Step  6150 | Loss:  0.850924 | Time: 0.026s
+Step  6200 | Loss:  0.772390 | Time: 0.026s
+Step  6250 | Loss:  0.772103 | Time: 0.027s
+Step  6300 | Loss:  0.804225 | Time: 0.027s
+Step  6350 | Loss:  0.674788 | Time: 0.026s
+Step  6400 | Loss:  0.691798 | Time: 0.026s
+Step  6450 | Loss:  0.591050 | Time: 0.026s
+Step  6500 | Loss:  0.564868 | Time: 0.030s
+Step  6550 | Loss:  0.503204 | Time: 0.026s
+Step  6600 | Loss:  0.487841 | Time: 0.026s
+Step  6650 | Loss:  0.531652 | Time: 0.026s
+Step  6700 | Loss:  0.459429 | Time: 0.027s
+Step  6750 | Loss:  0.434070 | Time: 0.026s
+Step  6800 | Loss:  0.429120 | Time: 0.029s
+Step  6850 | Loss:  0.349653 | Time: 0.027s
+Step  6900 | Loss:  0.341396 | Time: 0.026s
+Step  6950 | Loss:  0.359429 | Time: 0.027s
+Step  7000 | Loss:  0.308011 | Time: 0.027s
+Step  7050 | Loss:  0.364557 | Time: 0.027s
+Step  7100 | Loss:  0.253217 | Time: 0.028s
+Step  7150 | Loss:  0.301788 | Time: 0.027s
+Step  7200 | Loss:  0.240293 | Time: 0.026s
+Step  7250 | Loss:  0.235605 | Time: 0.026s
+Step  7300 | Loss:  0.199067 | Time: 0.026s
+Step  7350 | Loss:  0.196235 | Time: 0.026s
+Step  7400 | Loss:  0.188662 | Time: 0.026s
+Step  7450 | Loss:  0.178003 | Time: 0.026s
+Step  7500 | Loss:  0.171188 | Time: 0.028s
+Step  7550 | Loss:  0.179411 | Time: 0.025s
+Step  7600 | Loss:  0.186340 | Time: 0.026s
+Step  7650 | Loss:  0.159952 | Time: 0.027s
+Step  7700 | Loss:  0.175035 | Time: 0.027s
+Step  7750 | Loss:  0.158919 | Time: 0.026s
+Step  7800 | Loss:  0.108821 | Time: 0.026s
+
+Final Phase (Last 20 steps):
+--------------------------------------------------------------------------------
+Step  7808 | Loss:  0.140285 | Time: 0.026s | 2025-11-14T11:59:05.779683
+Step  7809 | Loss:  0.134811 | Time: 0.026s | 2025-11-14T11:59:05.888515
+Step  7810 | Loss:  0.124917 | Time: 0.026s | 2025-11-14T11:59:05.997299
+Step  7811 | Loss:  0.104067 | Time: 0.026s | 2025-11-14T11:59:06.106165
+Step  7812 | Loss:  0.121169 | Time: 0.034s | 2025-11-14T11:59:08.866812
+Step  7813 | Loss:  0.110202 | Time: 0.028s | 2025-11-14T11:59:08.980992
+Step  7814 | Loss:  0.115815 | Time: 0.027s | 2025-11-14T11:59:09.090016
+Step  7815 | Loss:  0.123735 | Time: 0.026s | 2025-11-14T11:59:09.199116
+Step  7816 | Loss:  0.124211 | Time: 0.028s | 2025-11-14T11:59:09.308085
+Step  7817 | Loss:  0.115075 | Time: 0.026s | 2025-11-14T11:59:09.416892
+Step  7818 | Loss:  0.147945 | Time: 0.026s | 2025-11-14T11:59:09.525732
+Step  7819 | Loss:  0.137811 | Time: 0.026s | 2025-11-14T11:59:09.634585
+Step  7820 | Loss:  0.112590 | Time: 0.026s | 2025-11-14T11:59:09.743449
+Step  7821 | Loss:  0.122636 | Time: 0.027s | 2025-11-14T11:59:09.852621
+Step  7822 | Loss:  0.105392 | Time: 0.026s | 2025-11-14T11:59:09.961447
+Step  7823 | Loss:  0.113420 | Time: 0.025s | 2025-11-14T11:59:10.070262
+Step  7824 | Loss:  0.129327 | Time: 0.026s | 2025-11-14T11:59:10.179145
+Step  7825 | Loss:  0.128774 | Time: 0.026s | 2025-11-14T11:59:10.288135
+Step  7826 | Loss:  0.103002 | Time: 0.026s | 2025-11-14T11:59:10.397088
+Step  7827 | Loss:  0.097235 | Time: 0.028s | 2025-11-14T11:59:13.031303
+
+================================================================================
+🎉 TRAINING COMPLETE - TARGET LOSS REACHED!
+Final Loss: 0.097235 < 0.1
+Total Steps: 7828
+================================================================================
 ```
+
+**Training Summary:**
+- Started with loss: 10.955374
+- Ended with loss: 0.097235
+- Total training time: ~21 minutes (11:38:20 - 11:59:13)
+- Average time per step: ~0.027 seconds
+- Target loss (< 0.1) achieved at step 7827
+
+**Key Milestones:**
+- Step 1000: Loss dropped to ~4.16 (62% reduction)
+- Step 2000: Loss dropped to ~3.67 (67% reduction)
+- Step 3000: Loss dropped to ~2.84 (74% reduction)
+- Step 4000: Loss dropped to ~2.06 (81% reduction)
+- Step 5000: Loss dropped to ~1.60 (85% reduction)
+- Step 6000: Loss dropped to ~0.97 (91% reduction)
+- Step 7000: Loss dropped to ~0.31 (97% reduction)
+- Step 7827: Loss reached 0.097 ✅ **TARGET ACHIEVED**
+
+</details>
 
 ---
 
