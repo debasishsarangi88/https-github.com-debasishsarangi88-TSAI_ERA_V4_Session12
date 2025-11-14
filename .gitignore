@@ -56,5 +56,8 @@ temp/
 .DS_Store
 Thumbs.db
 
+# Backup files
+*.bak
+
 # Note: *.pt files are tracked by Git LFS (see .gitattributes)
 
