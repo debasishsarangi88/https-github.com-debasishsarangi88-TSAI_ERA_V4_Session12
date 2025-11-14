@@ -1,3 +1,15 @@
+---
+title: GPT-2 Shakespeare Text Generator
+emoji: 🎭
+colorFrom: purple
+colorTo: pink
+sdk: gradio
+sdk_version: "4.0.0"
+app_file: app.py
+pinned: false
+license: mit
+---
+
 # 🎭 GPT-2 124M Shakespeare Text Generator
 
 A GPT-2 language model (124M parameters) trained on Shakespeare's complete works to generate text in Shakespearean style.
