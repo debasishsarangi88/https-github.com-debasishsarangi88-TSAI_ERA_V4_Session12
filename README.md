@@ -102,71 +102,6 @@ Session12/
 
 ---
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- **For Training**: Google account with Colab access (GPU runtime)
-- **For Deployment**: Hugging Face account (free tier available)
-- **Training Data**: `input.txt` (included)
-- **Estimated Time**: 30-60 minutes training + 10 minutes deployment
-
-### Part 1: Model Training (Google Colab)
-
-#### 1. Setup Colab Environment
-
-```bash
-# Upload train_gpt2_124m_colab.ipynb to Google Colab
-# Runtime → Change runtime type → Hardware accelerator: GPU (T4 or better)
-```
-
-#### 2. Execute Training Pipeline
-
-1. Run all cells sequentially
-2. Upload `input.txt` when prompted
-3. Monitor training progress in real-time
-4. Training automatically stops at target loss < 0.1
-
-#### 3. Download Trained Model
-
-```python
-# Automatic download triggered at end of training
-# Files downloaded: model_final.pt, training_log.json, loss_plot.png
-```
-
-**Expected Duration**: 30-60 minutes depending on GPU availability
-
-### Part 2: Deploy to Hugging Face Spaces
-
-#### 1. Create New Space
-
-1. Navigate to [huggingface.co/new-space](https://huggingface.co/new-space)
-2. Configuration:
-   - **Space name**: `gpt2-shakespeare-124m` (or custom name)
-   - **SDK**: Gradio
-   - **Hardware**: CPU basic (free tier) or GPU for faster inference
-   - **Visibility**: Public or Private
-
-#### 2. Upload Deployment Files
-
-Required files from `huggingface_app/` directory:
-- `app.py` - Main application
-- `model.py` - Model architecture
-- `model_final.pt` - Trained weights
-- `requirements.txt` - Dependencies
-- `README.md` - Documentation
-
-**Note**: For files > 500MB, use Git LFS (see DEPLOYMENT_GUIDE.md)
-
-#### 3. Launch Application
-
-1. Files automatically trigger build process (2-5 minutes)
-2. Monitor build logs for any errors
-3. Space status changes to "Running" when ready
-4. Access at: `https://huggingface.co/spaces/YOUR-USERNAME/SPACE-NAME`
-
----
-
 ## 🎯 Training Configuration
 
 ### Hyperparameters
@@ -234,96 +169,6 @@ bias = True                   # Bias in linear layers
 
 ---
 
-## 🎮 Usage Examples
-
-### Training in Colab
-
-```python
-# All handled automatically by the notebook
-# Simply run cells in sequence
-
-# Example output:
-"""
-📊 Training Configuration:
-- Model: GPT-2 124M parameters
-- Batch size: 16
-- Sequence length: 128
-- Learning rate: 3e-4
-- Target loss: < 0.1
-
-🚀 Starting training...
-
-Step     0 | Loss: 10.955 | Time: 0.036s | Tokens/s: 8372 | Elapsed: 0s
-Step   100 | Loss:  6.234 | Time: 0.031s | Tokens/s: 8645 | Elapsed: 3.2s
-...
-Step  7827 | Loss:  0.097 | Time: 0.032s | Tokens/s: 8421 | Elapsed: 31m 15s
-
-🎉 TARGET LOSS REACHED! Final Loss: 0.0972 < 0.1
-✅ Model saved to model_final.pt
-"""
-```
-
-### Using Deployed Application
-
-```python
-# Example interaction with deployed Gradio app
-
-Input Prompt: "First Citizen:"
-
-Parameters:
-- Temperature: 0.8
-- Max Length: 150
-- Top-K: 50
-
-Generated Output:
-"""
-First Citizen:
-Before we proceed any further, hear me speak.
-
-All:
-Speak, speak.
-
-First Citizen:
-You are all resolved rather to die than to famish?
-
-All:
-Resolved, resolved.
-
-First Citizen:
-First, you know Caius Marcius is chief enemy to the people.
-"""
-```
-
-### Programmatic Usage
-
-```python
-import torch
-from model import GPT
-import tiktoken
-
-# Load model
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-model = GPT.from_pretrained('model_final.pt')
-model = model.to(device)
-model.eval()
-
-# Initialize tokenizer
-enc = tiktoken.get_encoding("gpt2")
-
-# Generate text
-prompt = "To be or not to be,"
-tokens = enc.encode(prompt)
-tokens = torch.tensor(tokens, dtype=torch.long).unsqueeze(0).to(device)
-
-with torch.no_grad():
-    generated = model.generate(tokens, max_new_tokens=100, temperature=0.8, top_k=50)
-    
-output = enc.decode(generated[0].tolist())
-print(output)
-```
-
----
-
 ## 🔧 Advanced Configuration
 
 ### Custom Training Parameters
@@ -387,81 +232,6 @@ examples = [
     ["JULIET:", 150, 0.8, 50, 1],
     # Add more...
 ]
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Training Issues
-
-**Issue**: CUDA Out of Memory Error
-```python
-# Solution: Reduce memory usage
-BATCH_SIZE = 8          # Reduced from 16
-SEQUENCE_LENGTH = 64    # Reduced from 128
-
-# Or use gradient accumulation
-GRADIENT_ACCUM_STEPS = 2
-effective_batch_size = BATCH_SIZE * GRADIENT_ACCUM_STEPS
-```
-
-**Issue**: Loss Not Decreasing
-```bash
-# Checklist:
-1. Verify input.txt uploaded correctly
-2. Confirm GPU is enabled: torch.cuda.is_available() == True
-3. Check learning rate not too low/high
-4. Ensure sufficient training data (>100KB)
-5. Restart Colab runtime and retry
-```
-
-**Issue**: Training Too Slow
-```python
-# Optimization strategies:
-1. Verify GPU runtime selected (not CPU)
-2. Increase batch size if VRAM allows
-3. Use mixed precision training (fp16)
-4. Check for data loading bottlenecks
-```
-
-### Deployment Issues
-
-**Issue**: "Application Error" on Hugging Face
-```bash
-# Solutions:
-1. Verify all required files uploaded
-2. Check requirements.txt has correct versions
-3. Review build logs in Space settings
-4. Ensure model file named exactly "model_final.pt"
-```
-
-**Issue**: Model File Too Large to Upload
-```bash
-# Use Git LFS for files > 500MB
-git lfs install
-git lfs track "*.pt"
-git add .gitattributes
-git add model_final.pt
-git commit -m "Add model weights"
-git push
-```
-
-**Issue**: Out of Memory During Inference
-```python
-# Solution: Optimize generation
-# In app.py, reduce:
-max_new_tokens = 100     # Reduced from 500
-num_samples = 1          # Generate one at a time
-
-# Or upgrade to GPU hardware tier
-```
-
-**Issue**: Slow Generation Speed
-```
-# Free CPU tier: 5-10 seconds for 100 tokens (normal)
-# Solution: Upgrade to T4 GPU for 10x speedup
-# Settings → Hardware → T4 GPU (~$0.60/hour)
 ```
 
 ---
@@ -544,68 +314,6 @@ Total Parameters: 124,089,000
 
 ---
 
-## 🎓 Learning Outcomes
-
-By completing this project, you will understand:
-
-### Core Concepts
-- Transformer architecture and self-attention mechanisms
-- Causal language modeling and next-token prediction
-- Tokenization using byte-pair encoding (BPE)
-- Position embeddings and sequence modeling
-
-### Implementation Skills
-- Building decoder-only transformers from scratch
-- Training large language models efficiently
-- Implementing attention mechanisms
-- Managing GPU memory and compute resources
-
-### Production Deployment
-- Model serialization and weight management
-- Building web interfaces with Gradio
-- Deploying ML models to cloud platforms
-- Managing inference optimization
-
-### Best Practices
-- Proper model initialization techniques
-- Training monitoring and checkpointing
-- Loss curve analysis and convergence
-- Hyperparameter tuning strategies
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Areas for improvement:
-
-### Training Enhancements
-- [ ] Implement learning rate scheduling
-- [ ] Add gradient clipping
-- [ ] Support for mixed precision training
-- [ ] Distributed training for larger models
-- [ ] Data augmentation strategies
-
-### Model Improvements
-- [ ] Experiment with different architectures
-- [ ] Implement different attention mechanisms
-- [ ] Add model compression techniques
-- [ ] Fine-tuning capabilities
-
-### Deployment Features
-- [ ] Add batch inference support
-- [ ] Implement caching mechanisms
-- [ ] Create comparison tools
-- [ ] Add evaluation metrics
-- [ ] Build model versioning system
-
-### Documentation
-- [ ] Video tutorials
-- [ ] Interactive demos
-- [ ] Comprehensive API documentation
-- [ ] Case studies and examples
-
----
-
 ## 📝 License
 
 This project is released for educational purposes.
@@ -631,9 +339,9 @@ This project is released for educational purposes.
 
 ### Getting Help
 
-1. **Training Issues**: Review troubleshooting section above
-2. **Deployment Problems**: Check `DEPLOYMENT_GUIDE.md`
-3. **Model Questions**: See technical deep dive section
+1. **Training Issues**: Check inline notebook comments
+2. **Deployment Problems**: Review build logs in Hugging Face Space
+3. **Model Questions**: See technical deep dive section above
 4. **Bug Reports**: Open an issue with detailed information
 
 ### Additional Resources
