@@ -3,7 +3,17 @@
 A production-ready implementation of GPT-2 (124M parameters) decoder-only transformer model trained on Shakespeare's complete works with deployment to Hugging Face Spaces.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Debasishsarangi88/124M_GPT_Training)
+
+## 🚀 Live Demo
+
+**Try the model here**: [https://huggingface.co/spaces/Debasishsarangi88/124M_GPT_Training](https://huggingface.co/spaces/Debasishsarangi88/124M_GPT_Training)
+
+The deployed application allows you to:
+- Generate Shakespearean text from custom prompts
+- Adjust generation parameters (temperature, top-k, length)
+- See multiple sample outputs
+- Experience real-time text generation
 
 ## 📊 Training Results
 
@@ -366,14 +376,15 @@ This project is released for educational purposes.
 - [x] Loss visualization created
 
 ### Deployment Phase
-- [ ] Hugging Face account created
-- [ ] New Space created with Gradio SDK
-- [ ] Application files uploaded
-- [ ] Model weights uploaded
-- [ ] Space built successfully
-- [ ] Application running and accessible
-- [ ] Text generation tested and verified
-- [ ] Space shared with intended audience
+- [x] Hugging Face account created
+- [x] New Space created with Gradio SDK
+- [x] Application files uploaded
+- [x] Model weights uploaded
+- [x] Space built successfully
+- [x] Application running and accessible
+- [x] Text generation tested and verified
+- [x] Space shared with intended audience
+- [x] **Live at**: https://huggingface.co/spaces/Debasishsarangi88/124M_GPT_Training
 
 ### Documentation
 - [x] Training results documented
@@ -397,11 +408,11 @@ Your project is complete when:
 
 ---
 
-**Project Status**: ✅ **TRAINING COMPLETE** | 🚀 **READY FOR DEPLOYMENT**
+**Project Status**: ✅ **TRAINING COMPLETE** | ✅ **DEPLOYED & LIVE**
 
-Training successfully completed on November 13, 2025. Model achieved target loss of 0.0972 in 7,827 steps (~31 minutes). Ready for deployment to Hugging Face Spaces.
+Training successfully completed on November 13, 2025. Model achieved target loss of 0.0972 in 7,827 steps (~31 minutes). 
 
-For detailed deployment instructions, see `huggingface_app/DEPLOYMENT_GUIDE.md`
+🎉 **Now deployed and accessible at**: [https://huggingface.co/spaces/Debasishsarangi88/124M_GPT_Training](https://huggingface.co/spaces/Debasishsarangi88/124M_GPT_Training)
 
 ---
 
