@@ -47,8 +47,12 @@ The model was successfully trained to reach the target loss threshold:
 
 ### Complete Training Progress
 
+**Click the dropdown below to view the complete training log with all 7,828 steps:**
+
 <details>
-<summary><b>📊 Click to expand full training log (7,828 steps)</b></summary>
+<summary><strong>📊 Expand Full Training Log (7,828 steps)</strong></summary>
+
+<br>
 
 ```
 ================================================================================
